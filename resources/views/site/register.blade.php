@@ -3,7 +3,7 @@
 
 @section('content')
 
-    <div class="container-fluid w-75 m-auto p-4 position-static h-auto shadow-lg" id="register">
+    <div class="container-fluid m-auto p-4 position-static h-auto shadow-sm" id="register">
 
         <legend><h3>Cadastro de Usuário</h3></legend>
         <form class="row g-3" method="POST" action="{{ route('register') }}">

@@ -17,8 +17,9 @@
                               Pesquisar
                             </a>
                             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                              <li><a class="dropdown-item" href="">Meus Registros</a></li>
-                              <li><a class="dropdown-item" href="">Pesquisa Avançada</a></li>
+                              <li><a class="dropdown-item" href="{{route('editar')}}">Editar</a></li>
+                              <li><a class="dropdown-item" href="{{route('registros')}}">Meus Registros</a></li>
+                              <li><a class="dropdown-item" href="{{route('pesquisar')}}">Pesquisa Avançada</a></li>
                             </ul>
                           </li>
                         </ul>

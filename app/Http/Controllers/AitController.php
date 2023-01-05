@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Ait;
 use Illuminate\Http\Request;
 
 class AitController extends Controller
@@ -11,9 +12,13 @@ class AitController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $aits = Ait::paginate(10);
+
+        //dd($aits);
+
+        return view('ait.index', ['aits'=>$aits, 'request'=>$request->all()]);
     }
 
     /**
@@ -34,16 +39,40 @@ class AitController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+                'user_id'=>'required',
+                'cod_ait'=>'required|unique:aits,cod_ait',
+                'orgao_autuador'=>'required',
+                'matricula'=>'required',
+                'nome'=>'required'
+        ]);
+
+        $ait = Ait::create([
+            'user_id'=>$request->user_id,
+            'cod_ait'=>$request->cod_ait,
+            'orgao_autuador'=>$request->orgao_autuador,
+            'matricula'=>$request->matricula,
+            'nome'=>$request->nome,
+            'status'=> 0,
+        ]);
+
+        if($ait){
+            return redirect()->route('ait.index');
+        }
+        else{
+            $msg = 'Erro ao tentar criar novo AIT!';
+
+            return view('ait.index', compact('msg'));
+        }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Ait  $ait
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Ait $ait)
     {
         //
     }
@@ -51,10 +80,10 @@ class AitController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Ait  $ait
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Ait $ait)
     {
         //
     }
@@ -63,10 +92,10 @@ class AitController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Ait  $ait
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Ait $ait)
     {
         //
     }
@@ -74,10 +103,10 @@ class AitController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Ait  $ait
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Ait $ait)
     {
         //
     }

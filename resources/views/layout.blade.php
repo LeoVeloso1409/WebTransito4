@@ -69,18 +69,18 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div>
-                            <form method="POST" action="route('store.ait')">
+                            <form method="POST" action="{{route('ait.store')}}">
                                 @csrf
 
                                 @php
                                     //$cod_ait = App\Http\Controllers\WebtransitoController::gerarCodAit();
                                 @endphp
 
-                                <input hidden type="text" name="user_id" value="Auth::User()->id">
-                                <input hidden type="text" name="cod_ait" value="$cod_ait">
-                                <input hidden type="text" name="orgao_autuador" value="Auth::User()->orgao">
-                                <input hidden type="text" name="matricula" value="Auth::User()->matricula">
-                                <input hidden type="text" name="nome" value="Auth::User()->name">
+                                <input hidden type="text" name="user_id" value="2">
+                                <input hidden type="text" name="cod_ait" value="01203046">
+                                <input hidden type="text" name="orgao_autuador" value="PCMG">
+                                <input hidden type="text" name="matricula" value="1112223">
+                                <input hidden type="text" name="nome" value="ESTER ALVES DE SOUSA">
 
                                 <div class="modal-body">
                                     <p>Ao Iniciar uma autuação ela não poderá mais ser cancelada.</p>

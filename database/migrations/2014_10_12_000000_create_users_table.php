@@ -16,7 +16,7 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
 
-            $table->string('name')->require();
+            $table->string('nome')->require();
             $table->string('matricula')->unique();
             $table->string('email')->unique();
             $table->string('orgao')->require();

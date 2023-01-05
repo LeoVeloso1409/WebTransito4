@@ -1402,3 +1402,13 @@ select {
   }
 }
 
+.pagination li{
+    display: inline;
+    margin-right: 3px;
+    margin-left: 3px;
+}
+
+.pagination ul{
+    list-style-type: none;
+}
+

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\WebTransitoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -44,13 +45,25 @@ Route::prefix('/webtransito')->group(function(){
     })->name('pesquisar');
     */
 
-    Route::get('register', 'UserController@create')->name('register.user');
-    Route::post('register', 'UserController@store');
+    Route::get('user-register', 'UserController@create')->name('register.user');
+    Route::post('user-register', 'UserController@store');
     Route::get('listar-usuarios', 'UserController@index')->name('index.users');
     Route::get('editar-usuario/{id}/{msg?}', 'UserController@edit')->name('edit.user');
     Route::put('editar-usuario/{id}/{msg?}', 'UserController@update');
     Route::delete('excluir-usuario/{id}', 'UserController@destroy')->name('delete.user');
+    Route::get('pesquisar-usuarios', 'WebTransitoController@PesquisarUsers')->name('pesquisar.user');
+    Route::post('pesquisar-usuarios', 'WebTransitoController@BuscarUsers')->name('pesquisar.user');
 
-    Route::resource('ait', 'AitController');
+    Route::get('ait', 'AitController@index')->name('ait.index');
+    Route::get('ait-create', 'AitController@create')->name('ait.create');
+    Route::post('ait-create', 'AitController@store')->name('ait.store');
+    Route::get('ait-edit/{ait}', 'AitController@edit')->name('ait.edit');
+    Route::patch('ait-edit/{ait}', 'AitController@update')->name('ait.update');
+
+    Route::get('meus-registros', 'WebTransitoController@BuscarMeusRegistros')->name('aits.meus.registros');
+    Route::get('pesquisar-aits', 'WebTransitoController@PesquisarAits')->name('aits.pesquisar');
+    Route::post('pesquisar-aits', 'WebTransitoController@BuscarAits')->name('aits.pesquisar');
+
+    //Route::resource('ait', 'AitController');
 
 });

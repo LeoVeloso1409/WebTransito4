@@ -49,26 +49,25 @@ class UserController extends Controller
                 'funcao' => 'required',
                 'status' => 'required',
                 'password' => 'required|min:6|max:8',
-                //'password_confirmation' => 'required|confirmed'
+                'password_confirmation' => 'required|confirmed'
             ],
 
             [
-                'nome.required' => 'O campo Nome é obrigatório',
-                'matricula.required' => 'O campo Matrícula é obrigatório',
-                'matricula.numeric' => 'O campo Matrícula deve conter 7 dítgitos numéricos',
+                'nome.required' => '* Obrigatório',
+                'matricula.required' => '* Obrigatório',
                 'matricula.size' => 'O campo Matrícula deve conter 7 dítgitos numéricos',
                 'matricula.unique' => 'Este número de Matrícula já existe',
-                'email.required' => 'O campo Email é obrigatório',
+                'email.required' => '* Obrigatório',
                 'email.email' => 'O campo Email não foi preenchido corretamente',
-                'orgao.required' => 'O campo Orgão é obrigatório',
-                'unidade.required' => 'O campo Unidade é obrigatório',
-                'funcao.required' => 'O campo Função é obrigatório',
-                'status.required' => 'O campo Situação é obrigatório',
-                'password.required' => 'O campo Senha é obrigatório',
+                'orgao.required' => '* Obrigatório',
+                'unidade.required' => '* Obrigatório',
+                'funcao.required' => '* Obrigatório',
+                'status.required' => '* Obrigatório',
+                'password.required' => '* Obrigatório',
                 'password.min' => 'O campo Senha deve conter no mínimo 6 caracteres',
                 'password.max' => 'O campo Senha deve conter no máximo 8 caracteres',
-                //'password_confirmation.confirmed' => 'O campo Confirmar Senha deve ser igual ao campo Senha',
-                //'password_confirmation.required' => 'O campo Confirmar Senha é obrigatório'
+                'password_confirmation.confirmed' => 'O campo Confirmar Senha deve ser igual ao campo Senha',
+                'password_confirmation.required' => '* Obrigatório'
             ]
         );
 
@@ -147,16 +146,15 @@ class UserController extends Controller
             ],
 
             [
-                'nome.required' => 'O campo Nome é obrigatório',
-                'matricula.required' => 'O campo Matrícula é obrigatório',
-                'matricula.numeric' => 'O campo Matrícula deve conter 7 dítgitos numéricos',
+                'nome.required' => '* Obrigatório',
+                'matricula.required' => '* Obrigatório',
                 'matricula.size' => 'O campo Matrícula deve conter 7 dítgitos numéricos',
                 'matricula.unique' => 'Este número de Matrícula já existe',
-                'email.required' => 'O campo Email é obrigatório',
-                'orgao.required' => 'O campo Orgão é obrigatório',
-                'unidade.required' => 'O campo Unidade é obrigatório',
-                'funcao.required' => 'O campo Função é obrigatório',
-                'status.required' => 'O campo Situação é obrigatório',
+                'email.required' => '* Obrigatório',
+                'orgao.required' => '* Obrigatório',
+                'unidade.required' => '* Obrigatório',
+                'funcao.required' => '* Obrigatório',
+                'status.required' => '* Obrigatório',
                 //'password.required' => 'O campo Senha é obrigatório',
                 //'password.min' => 'O campo Senha deve conter no mínimo 6 caracteres',
                 //'password.max' => 'O campo Senha deve conter no máximo 8 caracteres',

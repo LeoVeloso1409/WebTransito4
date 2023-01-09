@@ -14,8 +14,7 @@ class AitController extends Controller
      */
     public function index(Request $request)
     {
-        $aits = Ait::paginate(10);
-
+        $aits = Ait::where('status', false)->paginate(10);
         //dd($aits);
 
         return view('ait.index', ['aits'=>$aits, 'request'=>$request->all()]);
@@ -85,7 +84,11 @@ class AitController extends Controller
      */
     public function edit(Ait $ait)
     {
-        //
+        //$data = Ait::find($ait);
+
+        //dd($ait);
+
+        return view('ait.edit', ['ait'=>$ait]);
     }
 
     /**
@@ -95,9 +98,100 @@ class AitController extends Controller
      * @param  \App\Ait  $ait
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Ait $ait)
+    public function update(Request $request, $id)
     {
-        //
+        //$data = Ait::find($ait);
+
+        $request->validate(
+            [
+                'placa' => 'required',
+                'marca' => 'required',
+                'modelo' => 'required',
+                'cor' => 'required',
+                'pais' => 'required',
+                'especie' => 'required',
+
+                'logradouro' => 'required',
+                'numero' => 'required',
+                'bairro' => 'required',
+                'cidade' => 'required',
+                'data' => 'required|date',
+                'hora' => 'required',
+
+                'codigo_infracao' => 'required',
+                'descricao' => 'required'
+            ],
+
+            [
+                'placa.required' => '* Obrigatório',
+                'marca.required' => '* Obrigatório',
+                'modelo.required' => '* Obrigatório',
+                'cor.required' => '* Obrigatório',
+                'pais.required' => '* Obrigatório',
+                'especie.required' => '* Obrigatório',
+
+                'logradouro.required' => '* Obrigatório',
+                'numero.required' => '* Obrigatório',
+                'bairro.required' => '* Obrigatório',
+                'cidade.required' => '* Obrigatório',
+                'data.required' => '* Obrigatório',
+                'data.date' => 'Formato inválido',
+                'hora.required' => '* Obrigatório',
+
+                'codigo_infracao.required' => '* Obrigatório',
+                'descricao.required' => '* Obrigatório'
+            ]
+        );
+
+        $update = Ait::where(['id'=>$id])->update([
+            'placa'=>$request->placa,
+            'marca'=>$request->marca,
+            'modelo'=>$request->modelo,
+            'cor'=>$request->cor,
+            'chassi'=>$request->chassi,
+            'pais'=>$request->pais,
+            'especie'=>$request->especie,
+
+            'nome_condutor'=>$request->nome_condutor,
+            'cpf_condutor'=>$request->cpf_condutor,
+            'rg_condutor'=>$request->rg_condutor,
+            'cnh_condutor'=>$request->cnh_condutor,
+            'uf_cnh'=>$request->uf_cnh,
+            'categoria_cnh'=>$request->categoria_cnh,
+            'validade_cnh'=>$request->validade_cnh,
+
+            'logradouro'=>$request->logradouro,
+            'numero'=>$request->numero,
+            'bairro'=>$request->bairro,
+            'cidade'=>$request->cidade,
+            'data'=>$request->data,
+            'hora'=>$request->hora,
+
+            'codigo_infracao'=>$request->codigo_infracao,
+            'descricao'=>$request->descricao,
+            'medicao_realizada'=>$request->medicao_realizada,
+            'limite_regulamentado'=>$request->limite_regulamentado,
+            'valor_considerado'=>$request->valor_considerado,
+            'observacoes'=>$request->observacoes,
+
+            'medida1'=>$request->medida1,
+            'medida2'=>$request->medida2,
+            'ficha_vistoria'=>$request->ficha_vistoria,
+
+            'imagem'=>$request->imagem,
+
+            'status'=> 1,
+        ]);
+
+
+        if($update){
+            //$msg = 'Registro atualizado com sucesso!';
+            return redirect()->route('ait.index');
+        }
+        else{
+            //$msg = 'Erro ao tentar atualizar registro!';
+            return redirect();
+        }
     }
 
     /**

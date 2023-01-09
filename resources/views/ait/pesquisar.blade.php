@@ -2,7 +2,7 @@
 @section('content')
     <div class="container-fluid m-auto p-4 position-static h-auto shadow-sm" id="pesquisar">
         <div class="container">
-            <form class="row g-3" method="POST" action="route('buscar.cod.ait')}}">
+            <form class="row g-3" method="POST" action="{{route('aits.pesquisar')}}">
 
                 @csrf
 
@@ -30,7 +30,7 @@
         </div>
 
         <div class="container align-content-justify">
-            <form class="row g-3" method="POST" action="route('buscar.avancada.ait')}}">
+            <form class="row g-3" method="POST" action="{{route('aits.pesquisar')}}">
 
                 @csrf
 
@@ -75,6 +75,14 @@
 
                         <div class="col-md-3">
                             <input type="date" name="data_final" id="dtFinal" class="form-control">
+                        </div>
+
+                        <div class="col-md-2">
+                            <select name="status" class="form-select">
+                                <option value="">Situação</option>
+                                <option value="1">Finalizadas</option>
+                                <option value="0">Pendentes</option>
+                            </select>
                         </div>
 
                         <fieldset class="p-4">

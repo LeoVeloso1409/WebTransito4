@@ -31,25 +31,25 @@
                     <!-- Matrícula -->
                     <div class="col-md-3">
                         <input id="matricula" class="form-control block mt-1 w-full" type="text" name="matricula" value="{{$user->matricula}}" disabled/>
-                        @if ($errors->has('matricula'))
-                            {{$errors->first('matricula')}}
-                        @endif
+                        <div style="color:red">
+                            {{($errors->has('matricula')) ? $errors->first('matricula') :''}}
+                        </div>
                     </div>
 
                     <!-- Nome -->
                     <div class="col-md-5">
                         <input id="nome" class="form-control block mt-1 w-full" type="text" name="nome" value="{{$user->nome}}"/>
-                        @if ($errors->has('nome'))
-                            {{$errors->first('nome')}}
-                        @endif
+                        <div style="color:red">
+                            {{($errors->has('nome')) ? $errors->first('nome') :''}}
+                        </div>
                     </div>
 
                     <!-- Email -->
                     <div class="col-md-4">
                         <input id="email" class="form-control block mt-1 w-full" type="email" name="email" value="{{$user->email}}"/>
-                        @if ($errors->has('email'))
-                            {{$errors->first('email')}}
-                        @endif
+                        <div style="color:red">
+                            {{($errors->has('email')) ? $errors->first('email') :''}}
+                        </div>
                     </div>
                 </div>
 
@@ -60,9 +60,9 @@
                             <option value="PMMG" {{old('orgao') == 'PMMG' ? 'selected' : ''}}>PMMG</option>
                             <option value="PCMG" {{old('orgao') == 'PCMG' ? 'selected' : ''}}>PCMG</option>
                         </select>
-                        @if ($errors->has('orgao'))
-                            {{$errors->first('orgao')}}
-                        @endif
+                        <div style="color:red">
+                            {{($errors->has('orgao')) ? $errors->first('orgao') :''}}
+                        </div>
                     </div>
                     <div class="col-md-3">
                         <select id="unidade" name="unidade" class="form-select">
@@ -73,9 +73,9 @@
                             <option value="...">...</option>
                             <option value="55 BPM" {{old('unidade') == '55 BPM' ? 'selected' : ''}}>55BPM</option>
                         </select>
-                        @if ($errors->has('unidade'))
-                            {{$errors->first('unidade')}}
-                        @endif
+                        <div style="color:red">
+                            {{($errors->has('unidade')) ? $errors->first('unidade') :''}}
+                        </div>
                     </div>
                     <div class="col-md-3">
                         <select id="funcao" name="funcao" class="form-select">
@@ -83,9 +83,9 @@
                             <option value="ADMIN" {{old('funcao') == 'ADMIN' ? 'selected' : ''}}>ADMINISTRADOR</option>
                             <option value="AGENTE" {{old('funcao') == 'AGENTE' ? 'selected' : ''}}>AGENTE</option>
                         </select>
-                        @if ($errors->has('funcao'))
-                            {{$errors->first('funcao')}}
-                        @endif
+                        <div style="color:red">
+                            {{($errors->has('funcao')) ? $errors->first('funcao') :''}}
+                        </div>
                     </div>
                     <div class="col-md-3">
                         <select id="status" name="status" class="form-select">
@@ -93,9 +93,9 @@
                             <option value="1" {{old('status') == '1' ? 'selected' : ''}}>ATIVO</option>
                             <option value="0" {{old('status') == '0' ? 'selected' : ''}}>INATIVO</option>
                         </select>
-                        @if ($errors->has('status'))
-                            {{$errors->first('status')}}
-                        @endif
+                        <div style="color:red">
+                            {{($errors->has('status')) ? $errors->first('status') :''}}
+                        </div>
                     </div>
                 </div>
             </fieldset>

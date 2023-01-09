@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Ait;
+use App\Models\Ait;
 use Illuminate\Http\Request;
 
 class AitController extends Controller
@@ -14,7 +14,7 @@ class AitController extends Controller
      */
     public function index(Request $request)
     {
-        $aits = Ait::where('status', false)->paginate(10);
+        $aits = Ait::where('status', false)->paginate(2);
         //dd($aits);
 
         return view('ait.index', ['aits'=>$aits, 'request'=>$request->all()]);

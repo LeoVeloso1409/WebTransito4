@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Ait;
-use App\User;
+use App\Models\Ait;
+use App\Models\User;
 
 class WebTransitoController extends Controller
 {
